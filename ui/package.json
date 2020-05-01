@@ -1,0 +1,14 @@
+{
+  "name": "lightctl-ui",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "onsenui": "^2.10.10"
+  },
+  "scripts": {
+    "serve": "parcel serve index.html",
+    "build": "parcel build --no-source-maps index.html"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.4"
+  }
+}

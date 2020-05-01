@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>lightctl</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+	<script type="text/javascript" src="index.js"></script>
+	<style type="text/css">
+	/**
+	 * Override the onsen material toggle switch style for
+	 * the "on" state to add a little color.
+	 */
+	:checked+.switch--material__toggle {
+		background-color: #237ddc !important;
+	}
+
+	:checked+.switch--material__toggle>.switch--material__handle {
+		background-color: #fdfdfd !important;
+	}
+
+	p[component=manual_override]::first-letter {
+		text-transform: capitalize;
+	}
+
+	input[type=time] {
+		background-color: white;
+	}
+
+	input[type=time]:disabled {
+		background-color: buttonface;
+	}
+	</style>
+</head>
+<body>
+<ons-page>
+	<ons-toolbar>
+		<div class="center">Light Control</div>
+	</ons-toolbar>
+	<ons-list>
+		<ons-list-header>Status</ons-list-header>
+		<ons-list-item>
+			<div class="center">Lights</div>
+			<div class="right">
+				<ons-switch component="light_switch"></ons-switch>
+			</div>
+		</ons-list-item>
+		<ons-list-item>
+			<div class="center">Manual Override</div>
+			<div class="right">
+				<p component="manual_override">Unknown</p>
+			</div>
+		</ons-list-item>
+	</ons-list>
+	<ons-list>
+		<ons-list-header>Schedule</ons-list-header>
+		<ons-list-item>
+			<div class="center">Enable</div>
+			<div class="right">
+				<ons-switch component="schedule_switch"></ons-switch>
+			</div>
+		</ons-list-item>
+		<ons-list-item>
+			<div class="center">Lights On</div>
+			<div class="right">
+				<input type="time" name="time_on" step="60" />
+			</div>
+		</ons-list-item>
+		<ons-list-item>
+			<div class="center">Lights Off</div>
+			<div class="right">
+				<input type="time" name="time_off" step="60" />
+			</div>
+		</ons-list-item>
+	</ons-list>
+</ons-page>
+</body></html>

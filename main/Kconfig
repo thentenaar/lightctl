@@ -1,0 +1,81 @@
+menu "Light Control"
+    config LIGHTCTL_PM
+        bool "Power Management Support"
+        select PM_ENABLE
+        select PM_DFS_INIT_AUTO
+        select FREERTOS_USE_TICKLESS_IDLE
+
+    config LIGHTCTL_EVLOOP_STACK_SIZE
+        int "Event loop stack size"
+        default 3584
+
+    config GPIO_STATUS_LED
+        int "Status led on GPIO #"
+        default 2
+
+    config GPIO_LIGHTS
+        int "Light switch on GPIO #"
+        default 4
+
+    config GPIO_SWON
+        int "Override Switch 'On' GPIO #"
+        default 34
+
+    config GPIO_SWOFF
+        int "Override Switch 'Off' GPIO #"
+        default 35
+
+    menu "Dallas RTC"
+        config DALLAS_GPIO_SDA
+            int "SDA on GPIO #"
+            default 21
+
+        config DALLAS_GPIO_SCL
+            int "SCL on GPIO #"
+            default 22
+
+        config DALLAS_GPIO_CE
+            int "CE on GPIO #"
+            default 17
+    endmenu
+
+    menu "httpd"
+        config HTTPD_TXBUF_SIZE
+            int "httpd transfer buffer size (in KB)"
+            default 16
+    endmenu
+
+    menu "Wi-Fi"
+        config WIFI_SSID
+            string "SSID"
+            default "lightctl"
+
+        config WIFI_PSK
+            string "PSK"
+            default "lightctl"
+
+        config WIFI_MAX_RETRIES
+            int "Max consecutive connection retries"
+            default 3
+
+        config WIFI_RETRY_MS
+            int "Milliseconds between non-consecutive retries"
+            default 5000
+
+        config WIFI_BLINK_MS
+            int "Status LED period time (milliseconds)"
+            default 500
+
+        config WIFI_COUNTRY
+            string "Country"
+            default "US"
+
+        config WIFI_SCHAN
+            int "Starting Channel"
+            default 1
+
+        config WIFI_NCHAN
+            int "Number of Channels"
+            default 11
+    endmenu
+endmenu

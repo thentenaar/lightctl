@@ -1,0 +1,9 @@
+*.sw?
+*.o
+*.old
+.cache
+sdkconfig
+build
+dist
+node_modules
+
